@@ -16,16 +16,11 @@
     const titleTexts = document.querySelectorAll('.l-island-a');
     const quotes = document.querySelectorAll('.comment-quote__content');
     const comments = document.querySelectorAll('.comment__text');
-
-     handleElement(title);
-     handleElementCollections(titleTexts);
-
-     handleElementCollections(quotes);
-     handleElementCollections(comments);
-
-     addListenersToBtns();
-
-
+    handleElement(title);
+    handleElementCollections(titleTexts);
+    handleElementCollections(quotes);
+    handleElementCollections(comments);
+    addListenersToBtns();
 
     function addListenersToBtns(){
         const loadMoreBtns = document.querySelectorAll('.comment__load-more');
@@ -56,10 +51,13 @@
     }
 
     function handleElement(el) {
-        const str = ucFirst(el.outerText.replace(/порвался|я порвался|ты порвался/ig, "я долбаеб"));
-        el.textContent = str;
-        if (!el.classList.contains('content-title')) {
-            el.outerHTML = `<div class="l-island-a"><p>${str}</p></div>`;
+        const reg = /порвался|я порвался|ты порвался/ig;
+        if(reg.test(el.outerText)){
+            const str = ucFirst(el.outerText.replace(reg, "я долбаёб"));
+            el.textContent = str;
+            if (!el.classList.contains('content-title')) {
+                el.outerHTML = `<div class="l-island-a"><p>${str}</p></div>`;
+            }
         }
     }
 
