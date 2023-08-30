@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DTF Torn Changer
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      1.0
 // @description  
 // @author       PhoenixG
 // @match        https://dtf.ru/*
@@ -42,7 +42,6 @@
                 loadMoreBtns.forEach(btn => {
                     btn.removeEventListener('click', handleComments);
                 });
-                console.log('up');
                 addListenersToBtns();
             }, 2000);
         }
